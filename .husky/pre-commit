@@ -1,0 +1,2 @@
+npx format
+npx lint:fix
