@@ -6,8 +6,8 @@ import { IPLaygroundState } from "./types"
 export const initialState: IPLaygroundState = {
   currentStep: 0,
   steps: [],
-  totalSuccessfull: 0,
-  totalUnSuccessfull: 0,
+  totalSuccessful: 0,
+  totalUnSuccessful: 0,
 }
 
 export const playgroundSlice = createSlice({
@@ -42,10 +42,10 @@ export const playgroundSlice = createSlice({
         }
 
         if (isSuccess) {
-          state.totalSuccessfull += 1
+          state.totalSuccessful += 1
         } else {
-          state.totalUnSuccessfull += 1
-          state.totalSuccessfull = 0
+          state.totalUnSuccessful += 1
+          state.totalSuccessful = 0
         }
       }
     },
@@ -54,9 +54,9 @@ export const playgroundSlice = createSlice({
         const step = state.steps[state.currentStep - 1]
 
         if (step.enteredValue == null) {
-          state.totalUnSuccessfull += 1
-          state.totalSuccessfull = 0
-          
+          state.totalUnSuccessful += 1
+          state.totalSuccessful = 0
+
           state.steps[state.currentStep - 1] = {
             ...step,
             success: false,

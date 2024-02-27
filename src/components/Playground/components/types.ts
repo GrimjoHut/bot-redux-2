@@ -3,5 +3,10 @@ export interface IMapArrowCodes {
     ArrowDown: string,
     ArrowLeft: string,
     ArrowRight: string,
-
 }
+
+export interface IEndGameConditions {
+    SUCCESS_COUNT: number
+    UNSUCCESS_COUNT: number
+  }
+  
