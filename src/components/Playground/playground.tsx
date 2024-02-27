@@ -62,7 +62,10 @@ const Playground: React.FC = () => {
       <RandomKeys isTimerActive={isTimerActive} />
       <KeyPressed isTimerActive={isTimerActive} />
       <Score />
-      {isShowModal && <Modal />}
+      {isShowModal && <Modal  
+      setIsShowModal={setIsShowModal}
+      isSuccessEndGame={isSuccessEndGame}
+      />}
     </div>
   )
 }
