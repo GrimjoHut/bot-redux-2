@@ -1,5 +1,4 @@
 import { IMapArrowCodes, IEndGameConditions } from "./components/types"
-export const INTERVAL_TIME: number = 4000
 
 export const MAP_ARROW_CODES: IMapArrowCodes = {
     ArrowUp: "⬆️",

@@ -1,0 +1,31 @@
+.modalWindow{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+    transition-delay: 0.1s;
+    pointer-events: none;
+  }
+  .modalWindow.active{
+    opacity: 1;
+    pointer-events: all;
+  }
+  .modalWindowContent{
+    padding: 4vh 5vw;
+    border-radius: 5%;
+    background-color: burlywood;
+    height: 5vh;
+    width: 6vw;
+    transform: scale(0.5);
+    transition: 0.4s all;
+  }
+ .modalWindowContent.active{
+  transform: scale(1);
+ }

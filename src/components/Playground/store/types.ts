@@ -10,4 +10,13 @@ export interface IPLaygroundState {
   steps: IPLaygroundStepsState[]
   totalSuccessful: number
   totalUnSuccessful: number
+  isDifficultyLevel: IStateDifficultyLevel
 }
+
+export enum IStateDifficultyLevel {
+  easy = "easy",
+  middle = "middle" ,
+  hard = "hard",
+  impossible = "impossible"
+}
+

@@ -8,7 +8,9 @@ import KeyPressed from "./components/KeyPressed"
 import Score from "./components/Score/Score"
 import Modal from "./components/Modal"
 
-import { INTERVAL_TIME, END_GAME_CONDITIONS } from "./Constants"
+import { IStateDifficultyLevel } from "./store/types"
+import { END_GAME_CONDITIONS } from "./Constants"
+import DropDownList from "./components/DropDownList/DropDownList"
 
 const Playground: React.FC = () => {
   const state = useAppSelector(state => state.playground)
@@ -17,8 +19,29 @@ const Playground: React.FC = () => {
   const [isShowModal, setIsShowModal] = useState<boolean>(false)
   const [isSuccessEndGame, setIsSuccessEndGame] = useState<boolean>(false)
   const [isTimerActive, setIsTimerActive] = useState<boolean>(false)
+  const [INTERVAL_TIME, setINTERVAL_TIME] = useState<number>(1000)
 
   const refreshIntervalId = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  useEffect(() => {
+    switch (state.isDifficultyLevel) {
+      case IStateDifficultyLevel.easy:
+        setINTERVAL_TIME(1000)
+        break
+      case IStateDifficultyLevel.middle:
+        setINTERVAL_TIME(750)
+        break
+      case IStateDifficultyLevel.hard:
+        setINTERVAL_TIME(450)
+        break
+      case IStateDifficultyLevel.impossible:
+        setINTERVAL_TIME(10)
+        break
+      default:
+        setINTERVAL_TIME(1000)
+    }
+    console.log(INTERVAL_TIME)
+  }, [state.isDifficultyLevel])
 
   useEffect(() => {
     if (isTimerActive) {
@@ -27,6 +50,7 @@ const Playground: React.FC = () => {
         dispatch(setCurrentStep())
         dispatch(setSteps())
       }, INTERVAL_TIME)
+      console.log(("Interval")+INTERVAL_TIME)
     } else {
       clearInterval(refreshIntervalId.current as NodeJS.Timeout)
     }
@@ -34,27 +58,26 @@ const Playground: React.FC = () => {
     return () => {
       clearInterval(refreshIntervalId.current as NodeJS.Timeout)
     }
-  }, [isTimerActive, dispatch])
+  }, [isTimerActive, INTERVAL_TIME])
 
   useEffect(() => {
-   const isSuccessful = 
-   state.totalSuccessful === END_GAME_CONDITIONS.SUCCESS_COUNT
-   const isUnSuccessful = 
-   state.totalUnSuccessful === END_GAME_CONDITIONS.UNSUCCESS_COUNT
+    const isSuccessful =
+      state.totalSuccessful === END_GAME_CONDITIONS.SUCCESS_COUNT
+    const isUnSuccessful =
+      state.totalUnSuccessful === END_GAME_CONDITIONS.UNSUCCESS_COUNT
 
-   isSuccessful && setIsSuccessEndGame(true)
-   isUnSuccessful && setIsSuccessEndGame(false)
+    isSuccessful && setIsSuccessEndGame(true)
+    isUnSuccessful && setIsSuccessEndGame(false)
 
- if (isSuccessful || isUnSuccessful){
-  setIsShowModal(true)
-  setIsTimerActive(false)
- }
-
+    if (isSuccessful || isUnSuccessful) {
+      setIsShowModal(true)
+      setIsTimerActive(false)
+    }
   }, [state.totalSuccessful, state.totalUnSuccessful])
 
   return (
     <div>
-      {state.currentStep}
+      <DropDownList  />
       <Controls
         isTimerActive={isTimerActive}
         setIsTimerActive={setIsTimerActive}
@@ -62,10 +85,11 @@ const Playground: React.FC = () => {
       <RandomKeys isTimerActive={isTimerActive} />
       <KeyPressed isTimerActive={isTimerActive} />
       <Score />
-      {isShowModal && <Modal  
-      setIsShowModal={setIsShowModal}
-      isSuccessEndGame={isSuccessEndGame}
-      />}
+      <Modal
+        setIsShowModal={setIsShowModal}
+        isSuccessEndGame={isSuccessEndGame}
+        isShowModal={isShowModal}
+      />
     </div>
   )
 }
