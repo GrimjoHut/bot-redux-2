@@ -9,7 +9,7 @@ export const initialState: IPLaygroundState = {
   steps: [],
   totalSuccessful: 0,
   totalUnSuccessful: 0,
-  isDifficultyLevel: IStateDifficultyLevel.easy
+  isDifficultyLevel: IStateDifficultyLevel.easy,
 }
 
 export const playgroundSlice = createSlice({

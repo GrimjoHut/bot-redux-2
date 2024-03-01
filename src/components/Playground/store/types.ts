@@ -14,9 +14,9 @@ export interface IPLaygroundState {
 }
 
 export enum IStateDifficultyLevel {
-  easy = "easy",
-  middle = "middle" ,
-  hard = "hard",
-  impossible = "impossible"
+  easy = "Просто",
+  middle = "Средне" ,
+  hard = "Сложно",
+  impossible = "Невозможно"
 }
 

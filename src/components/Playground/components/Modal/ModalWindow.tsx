@@ -8,15 +8,17 @@ export interface IModalProps {
     setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>
     isSuccessEndGame: boolean
     isShowModal: boolean
+    setIsSuccessEndGame:React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Modal: React.FC<IModalProps> = (props) => {
-    const {setIsShowModal, isSuccessEndGame, isShowModal} = props
+    const {setIsShowModal, isSuccessEndGame, isShowModal, setIsSuccessEndGame} = props
 
     const dispatch = useAppDispatch()
 
     const handleClose = () => {
         setIsShowModal(false)
+        setIsSuccessEndGame(false)
         dispatch(resetStore())
     }
 

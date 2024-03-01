@@ -7,6 +7,7 @@ import RandomKeys from "./components/RandomKeys/RandomKeys"
 import KeyPressed from "./components/KeyPressed"
 import Score from "./components/Score/Score"
 import Modal from "./components/Modal"
+import "./Playground.css"
 
 import { IStateDifficultyLevel } from "./store/types"
 import { END_GAME_CONDITIONS } from "./Constants"
@@ -68,7 +69,7 @@ const Playground: React.FC = () => {
 
     isSuccessful && setIsSuccessEndGame(true)
     isUnSuccessful && setIsSuccessEndGame(false)
-
+    console.log({isSuccessEndGame})
     if (isSuccessful || isUnSuccessful) {
       setIsShowModal(true)
       setIsTimerActive(false)
@@ -76,7 +77,7 @@ const Playground: React.FC = () => {
   }, [state.totalSuccessful, state.totalUnSuccessful])
 
   return (
-    <div>
+    <body className={isSuccessEndGame? "BackgroundImageOpened": "BackgroundImageLocked"}>
       <DropDownList  />
       <Controls
         isTimerActive={isTimerActive}
@@ -89,8 +90,9 @@ const Playground: React.FC = () => {
         setIsShowModal={setIsShowModal}
         isSuccessEndGame={isSuccessEndGame}
         isShowModal={isShowModal}
+        setIsSuccessEndGame={setIsSuccessEndGame}
       />
-    </div>
+    </body>
   )
 }
 

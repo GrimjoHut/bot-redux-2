@@ -1,0 +1,9 @@
+.BackgroundImageOpened {
+  background-image: url(./Resources/Images/ChestOpened.jpg);
+}
+.BackgroundImageLocked {
+  background-image: url(./Resources/Images/ChestLocked.jpg);
+}
+body{
+    height: 100vh;
+    }

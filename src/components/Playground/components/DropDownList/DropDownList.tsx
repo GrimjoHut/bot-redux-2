@@ -11,7 +11,7 @@ const DropDownList: React.FC = () => {
   return (
     <ul className="DropDownListMenu">
       <li>
-        <a>Уровень сложности</a>
+        <a>{state.isDifficultyLevel}</a>
         <ul>
           <li>
             <a onClick={() => dispatch(setDifficultyLevel(IStateDifficultyLevel.easy))}>Просто</a>
