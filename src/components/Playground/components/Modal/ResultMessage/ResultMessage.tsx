@@ -7,7 +7,7 @@ export interface IResultMessageProps {
 const ResultMessage: React.FC<IResultMessageProps> = props => {
   const { isSuccessEndGame } = props
 
-  return isSuccessEndGame ? (<span>You won</span>) : (<span>Yoo lost</span>)
+  return isSuccessEndGame ? (<span>NICE!, ISRAEL HAD LOST SOME GOLD</span>) : (<span>OH NO, THEY ARE HERE</span>)
 }
 
 export default ResultMessage

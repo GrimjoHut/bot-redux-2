@@ -3,6 +3,7 @@ import"./ModalWindow.css"
 import { useAppDispatch } from "../../../../app/hooks"
 import { resetStore } from "../../store/slices"
 import ResultMessage from "./ResultMessage/ResultMessage"
+import StartNewGameSound from "./../../Resources/Sounds/StartNewGameSound.mp3"
 
 export interface IModalProps {
     setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -15,10 +16,12 @@ export interface IModalProps {
 
 const Modal: React.FC<IModalProps> = (props) => {
     const {setIsShowModal, isSuccessEndGame, isShowModal, setIsSuccessEndGame, isShowLockpick, setIsShowLockpick} = props
+    const StartGameSound = new Audio(StartNewGameSound)
 
     const dispatch = useAppDispatch()
 
     const handleClose = () => {
+        StartGameSound.play()
         setIsShowModal(false)
         setIsSuccessEndGame(false)
         setIsShowLockpick(true)
@@ -28,7 +31,8 @@ const Modal: React.FC<IModalProps> = (props) => {
     return <div className={isShowModal? "modalWindow active" : "modalWindow"}>
         <div className={isShowModal? "modalWindowContent active" : "modalWindowContent"}>
         <ResultMessage isSuccessEndGame ={isSuccessEndGame} />
-        <button onClick={handleClose}>Start New Game</button>
+        <br></br>
+        <button className="ModalWindowButton" onClick={handleClose}>Another try?</button>
         </div>
     </div>
 }
