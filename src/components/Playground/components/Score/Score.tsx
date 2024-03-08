@@ -1,15 +1,15 @@
-// import styles from "./Score.module.css"
-import { useAppSelector } from "../../../../app/hooks"
+import "./Score.css";
+import { useAppSelector } from "../../../../app/hooks";
 
 const Score: React.FC = () => {
-    const state = useAppSelector(state => state.playground)
+    const state = useAppSelector(state => state.playground);
 
-    return <>
-        <h3>Score</h3>
-        <span>Errors: {state.totalUnSuccessful}</span>
-        <br />
-        <span>Succesful: {state.totalSuccessful}</span>
-    </>
+    return (
+        <div className="ScoreContainer">
+            <span className="Error">Errors: {state.totalUnSuccessful}</span>
+            <span className="Success">Succesful: {state.totalSuccessful}</span>
+        </div>
+    );
 }
 
-export default Score
+export default Score;

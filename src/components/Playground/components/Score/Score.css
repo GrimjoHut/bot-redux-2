@@ -1,0 +1,22 @@
+.ScoreContainer {
+    position: absolute;
+    bottom: 2.5%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .Error {
+    border: 3px solid rgb(187, 44, 44);
+    border-radius: 20%;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.808);
+  }
+  .Success {
+    border: 3px solid rgb(52, 170, 58);
+    border-radius: 20%;
+    padding: 10px;
+    background-color: rgb(62, 177, 17);
+  }
+  
+  

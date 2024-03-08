@@ -13,13 +13,17 @@ import { IStateDifficultyLevel } from "./store/types"
 import { END_GAME_CONDITIONS } from "./Constants"
 import DropDownList from "./components/DropDownList/DropDownList"
 import BackgroundMusicPlayground from "./Resources/Sounds/BackgroundMusicPlayground.mp3";
+import OpenedChestSound from "./Resources/Sounds/OpenedChestSound.mp3"
+import LostGameSound from "./Resources/Sounds/LostGameSound.mp3"
 
 const Playground: React.FC = () => {
   const state = useAppSelector(state => state.playground)
   const dispatch = useAppDispatch()
   const BackGroundMusic = new Audio(BackgroundMusicPlayground)
   BackGroundMusic.volume = 0.2
-
+  const OpenedChest = new Audio(OpenedChestSound)
+  const LockedChest = new Audio(LostGameSound)
+ 
   const [isShowModal, setIsShowModal] = useState<boolean>(false)
   const [isSuccessEndGame, setIsSuccessEndGame] = useState<boolean>(false)
   const [isTimerActive, setIsTimerActive] = useState<boolean>(false)
@@ -73,16 +77,21 @@ const Playground: React.FC = () => {
 
     isSuccessful && setIsSuccessEndGame(true)
     isUnSuccessful && setIsSuccessEndGame(false)
-    console.log({isSuccessEndGame})
-    if (isSuccessful || isUnSuccessful) {
+    if (isSuccessful) {
       setIsShowModal(true)
       setIsTimerActive(false)
+      OpenedChest.play()
+    }
+    if (isUnSuccessful) {
+      setIsShowModal(true)
+      setIsTimerActive(false)
+      LockedChest.play()
     }
   }, [state.totalSuccessful, state.totalUnSuccessful])
 
   return (
     <body className={isSuccessEndGame? "BackgroundImageOpened": "BackgroundImageLocked"}>
-      <DropDownList  />
+      <DropDownList />
       <Controls
         isTimerActive={isTimerActive}
         setIsTimerActive={setIsTimerActive}
