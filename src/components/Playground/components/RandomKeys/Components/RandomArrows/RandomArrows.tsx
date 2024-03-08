@@ -19,13 +19,13 @@ const RandomArrows: React.FC = () => {
   };
 
   return (
-      <>
+      <div>
           {state.steps.slice(Math.max(state.steps.length - 3, 0)).map((element) => (
               <span key={element.step} className={getStylesRandomKeys(element)}>
                   {MAP_ARROW_CODES[element.currentValue as keyof IMapArrowCodes]}
               </span>
           ))}
-      </>
+      </div>
   );
 };
 

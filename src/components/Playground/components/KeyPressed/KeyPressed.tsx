@@ -36,7 +36,6 @@ const KeyPressed: React.FC<IKeyPressedProps> = props => {
 
   return (
     <div>
-      <h3>KeyPressed</h3>
       <span>{KeyPressedElement}</span>
     </div>
   )

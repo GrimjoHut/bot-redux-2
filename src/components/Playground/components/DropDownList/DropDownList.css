@@ -1,6 +1,9 @@
 .DropDownListMenu{
     display: flex;
+    position: absolute;
     margin: 0;
+    top: 47%;
+    left: 8%;
   }
   
   .DropDownListMenu li{

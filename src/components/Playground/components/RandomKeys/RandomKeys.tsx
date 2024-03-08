@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../../../app/hooks"
 import RandomArrows from "./Components/RandomArrows"
 import WelcomeText from "./Components/WelcomeText"
+import "./RandomKeys.css"
 
 
 export interface IRandomKeysProps {
@@ -14,9 +15,7 @@ const RandomKeys: React.FC<IRandomKeysProps> = props => {
 
 
   return (
-    <div>
-      <h3>Random Keys</h3>
-
+    <div className="RandomKeys">
       {state.steps.length === 0 ? (<WelcomeText isTimerActive={isTimerActive}/>) :(
        <RandomArrows />
       )}

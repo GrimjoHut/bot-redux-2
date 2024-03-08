@@ -20,16 +20,16 @@ const DropDownList: React.FC = () => {
         <a>{state.isDifficultyLevel}</a>
         <ul>
           <li>
-            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.easy)}>Просто</a>
+            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.easy)}>Easy</a>
           </li>
           <li>
-            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.middle)}>Средне</a>
+            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.middle)}>Middle</a>
           </li>
           <li>
-            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.hard)}>Сложно</a>
+            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.hard)}>Hard</a>
           </li>
           <li>
-            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.impossible)}>Невозможно</a>
+            <a onClick={() => handleDifficultyLevelClick(IStateDifficultyLevel.impossible)}>Impossible</a>
           </li>
         </ul>
       </li>

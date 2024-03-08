@@ -1,11 +1,10 @@
-*{
-  overflow: hidden;
-}
+
 .ControlsContainer {
   position: absolute;
-  left: 77%;
+  left: 79%;
   top: 46%;
-  width: 100%;
+  width: 21%;
+  overflow: hidden;
 }
 
 
@@ -15,16 +14,23 @@
   position: absolute;
   left: 80%;
   top: 40%;
-  width: 100%;
+  width: 20%;
 }
 
-.MotivationwWordsHidden {
+.MotivationWordsHidden {
   opacity: 0;
   pointer-events: none;
   position: absolute;
   left: 70%;
   top: 40%;
   width: 20%;
+}
+.MotivationWords{
+  position: absolute;
+  top: 38%;
+  left: 70%;
+  font-size: 180%;
+  text-align: center;
 }
 .ControlsContainerSpan {
   position: absolute;

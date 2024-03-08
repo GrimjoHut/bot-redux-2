@@ -1,15 +1,16 @@
 import "./Controls.css"
 import LockPick from "./../../Resources/Images/LockpickButton.png"
-import { useState } from "react"
+import Jewish from "./../../Resources/Images/Jewish.png"
 
 export interface IControlsProps {
     isTimerActive: boolean,
-    setIsTimerActive: React.Dispatch<React.SetStateAction<boolean>>
+    setIsTimerActive: React.Dispatch<React.SetStateAction<boolean>>,
+    isShowLockpick: boolean,
+    setIsShowLockpick: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Controls: React.FC<IControlsProps> = (props) => {
-    const [isShowLockpick, setIsShowLockpick] = useState<boolean>(true)
-    const { isTimerActive, setIsTimerActive} = props
+    const { isTimerActive, setIsTimerActive, isShowLockpick, setIsShowLockpick} = props
     const HandleLockpick = () => {
         setIsTimerActive(true)
         setIsShowLockpick(false)
@@ -20,8 +21,10 @@ const Controls: React.FC<IControlsProps> = (props) => {
     <div className={isShowLockpick? "ControlsContainer" : "ControlsContainerHidden" }>
         <img className="Lockpick" src={LockPick} onClick={HandleLockpick}></img>
     </div>
-    <div className={isShowLockpick? "MotivationwWordsHidden" : "MotivationwWords"}>
-        
+    <div className={isShowLockpick? "MotivationWordsHidden" : "MotivationWords"}>
+     <span> Oh god, jews are nearby,<br></br> you must be hurry </span>
+     <br></br>
+     <img src={Jewish}></img>
     </div>
     </>
 }

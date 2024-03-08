@@ -7,12 +7,10 @@ export interface IWelcomeTextProps {
 
 const WelcomeText: React.FC<IWelcomeTextProps> = (props) => {
     const {isTimerActive} = props
-
-    if (isTimerActive){
-        return <span><img src={loader} ></img></span>
-    }
-
-    return <span>Hello</span>
+    return(
+        <>
+        </>
+    )
 }
 
 export default WelcomeText

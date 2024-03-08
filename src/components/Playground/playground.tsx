@@ -12,7 +12,7 @@ import "./Playground.css"
 import { IStateDifficultyLevel } from "./store/types"
 import { END_GAME_CONDITIONS } from "./Constants"
 import DropDownList from "./components/DropDownList/DropDownList"
-import BackgroundMusicPlayground from "./Resources/Sounds/BackgroundMusicPlayground.mp3";
+import BackgroundMusicPlayground from "./Resources/Sounds/BackgroundMusicPlayground.mp3"
 import OpenedChestSound from "./Resources/Sounds/OpenedChestSound.mp3"
 import LostGameSound from "./Resources/Sounds/LostGameSound.mp3"
 
@@ -23,11 +23,12 @@ const Playground: React.FC = () => {
   BackGroundMusic.volume = 0.2
   const OpenedChest = new Audio(OpenedChestSound)
   const LockedChest = new Audio(LostGameSound)
- 
+
   const [isShowModal, setIsShowModal] = useState<boolean>(false)
   const [isSuccessEndGame, setIsSuccessEndGame] = useState<boolean>(false)
   const [isTimerActive, setIsTimerActive] = useState<boolean>(false)
   const [INTERVAL_TIME, setINTERVAL_TIME] = useState<number>(1000)
+  const [isShowLockpick, setIsShowLockpick] = useState<boolean>(true)
 
   const refreshIntervalId = useRef<ReturnType<typeof setInterval> | null>(null)
 
@@ -58,7 +59,7 @@ const Playground: React.FC = () => {
         dispatch(setCurrentStep())
         dispatch(setSteps())
       }, INTERVAL_TIME)
-        BackGroundMusic.play()
+      BackGroundMusic.play()
     } else {
       clearInterval(refreshIntervalId.current as NodeJS.Timeout)
     }
@@ -90,16 +91,24 @@ const Playground: React.FC = () => {
   }, [state.totalSuccessful, state.totalUnSuccessful])
 
   return (
-    <body className={isSuccessEndGame? "BackgroundImageOpened": "BackgroundImageLocked"}>
+    <body
+      className={
+        isSuccessEndGame ? "BackgroundImageOpened" : "BackgroundImageLocked"
+      }
+    >
       <DropDownList />
       <Controls
         isTimerActive={isTimerActive}
         setIsTimerActive={setIsTimerActive}
+        isShowLockpick={isShowLockpick}
+        setIsShowLockpick={setIsShowLockpick}
       />
       <RandomKeys isTimerActive={isTimerActive} />
       <KeyPressed isTimerActive={isTimerActive} />
       <Score />
       <Modal
+        isShowLockpick={isShowLockpick}
+        setIsShowLockpick={setIsShowLockpick}
         setIsShowModal={setIsShowModal}
         isSuccessEndGame={isSuccessEndGame}
         isShowModal={isShowModal}
