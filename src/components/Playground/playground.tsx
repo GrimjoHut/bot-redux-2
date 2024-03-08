@@ -12,10 +12,13 @@ import "./Playground.css"
 import { IStateDifficultyLevel } from "./store/types"
 import { END_GAME_CONDITIONS } from "./Constants"
 import DropDownList from "./components/DropDownList/DropDownList"
+import BackgroundMusicPlayground from "./Resources/Sounds/BackgroundMusicPlayground.mp3";
 
 const Playground: React.FC = () => {
   const state = useAppSelector(state => state.playground)
   const dispatch = useAppDispatch()
+  const BackGroundMusic = new Audio(BackgroundMusicPlayground)
+  BackGroundMusic.volume = 0.2
 
   const [isShowModal, setIsShowModal] = useState<boolean>(false)
   const [isSuccessEndGame, setIsSuccessEndGame] = useState<boolean>(false)
@@ -51,13 +54,14 @@ const Playground: React.FC = () => {
         dispatch(setCurrentStep())
         dispatch(setSteps())
       }, INTERVAL_TIME)
-      console.log(("Interval")+INTERVAL_TIME)
+        BackGroundMusic.play()
     } else {
       clearInterval(refreshIntervalId.current as NodeJS.Timeout)
     }
 
     return () => {
       clearInterval(refreshIntervalId.current as NodeJS.Timeout)
+      BackGroundMusic.pause()
     }
   }, [isTimerActive, INTERVAL_TIME])
 

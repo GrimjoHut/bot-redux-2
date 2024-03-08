@@ -41,6 +41,7 @@ export const playgroundSlice = createSlice({
         const isSuccess = step.currentValue === action.payload
 
         if (step.enteredValue === null) {
+
           state.steps[state.currentStep - 1] = {
             ...step,
             enteredValue: action.payload,
