@@ -1,6 +1,8 @@
 import "./Controls.css"
 import LockPick from "./../../Resources/Images/LockpickButton.png"
 import Jewish from "./../../Resources/Images/Jewish.png"
+import JewishLaughSound from "./../../Resources/Sounds/JewishLaughSound.mp3"
+import StartButtonSound from "./../../Resources/Sounds/StartButtonSound.mp3"
 
 export interface IControlsProps {
     isTimerActive: boolean,
@@ -10,10 +12,16 @@ export interface IControlsProps {
 }
 
 const Controls: React.FC<IControlsProps> = (props) => {
+    const StartSound = new Audio(StartButtonSound)
+    const JewishSound = new Audio (JewishLaughSound)
     const { isTimerActive, setIsTimerActive, isShowLockpick, setIsShowLockpick} = props
     const HandleLockpick = () => {
         setIsTimerActive(true)
         setIsShowLockpick(false)
+        StartSound.play()
+    }
+    const HandleJewish = () => {
+        JewishSound.play()
     }
 
     return <>
@@ -24,7 +32,7 @@ const Controls: React.FC<IControlsProps> = (props) => {
     <div className={isShowLockpick? "MotivationWordsHidden" : "MotivationWords"}>
      <span> Oh god, jews are nearby,<br></br> you must be hurry </span>
      <br></br>
-     <img src={Jewish}></img>
+     <img src={Jewish} onClick={HandleJewish}></img>
     </div>
     </>
 }

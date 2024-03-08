@@ -29,6 +29,7 @@
   height: 40px;
   line-height: 40px;
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .DropDownListMenu a:hover {
