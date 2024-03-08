@@ -1,0 +1,23 @@
+.Header{
+    font-size: 180%;
+    position: absolute;
+    left: 30%;
+}
+.HeaderHidden{
+    font-size: 180%;
+    position: absolute;
+    left: 30%;
+    opacity: 0;
+}
+.WarningHeader{
+    font-size: 600%;
+    position: absolute;
+    left: 25%;
+    color: red;
+}
+.WarningHeaderHidden{
+    font-size: 600%;
+    position: absolute;
+    left: 25%;
+    opacity: 0;
+}

@@ -1,0 +1,30 @@
+.Title{
+    font-size: 180%;
+    position: absolute;
+    top: 36%;
+    left: 5%;
+    text-align: center;
+}
+.TitleHidden{
+    font-size: 180%;
+    position: absolute;
+    top: 36%;
+    left: 5%;
+    text-align: center;
+    opacity: 0;
+}
+.WarningTitle{
+    font-size: 250%;
+    position: absolute;
+    top: 36%;
+    left: 3%;
+    text-align: center;
+}
+.WarningTitleHidden{
+    font-size: 250%;
+    position: absolute;
+    top: 36%;
+    left: 5%;
+    text-align: center;
+    opacity: 0;
+}

@@ -4,7 +4,12 @@ import { useAppSelector, useAppDispatch } from "../../../../app/hooks";
 import { setDifficultyLevel } from "../../store/slices";
 import ChooseSound from "./../../Resources/Sounds/ChooseSound.mp3";
 
-const DropDownList: React.FC = () => {
+export interface IDropDownProps {
+  isTimerActive:boolean
+}
+
+const DropDownList: React.FC<IDropDownProps> = (props) => {
+  const {isTimerActive} = props
   const state = useAppSelector((state) => state.playground);
   const dispatch = useAppDispatch();
   const chooseSound = new Audio(ChooseSound);
@@ -15,7 +20,7 @@ const DropDownList: React.FC = () => {
   };
 
   return (
-    <ul className="DropDownListMenu">
+    <ul className={!isTimerActive? "DropDownListMenu" : "HiddenDropDownListMenu"}>
       <li>
         <a>{state.isDifficultyLevel}</a>
         <ul>

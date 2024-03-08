@@ -7,6 +7,7 @@ import RandomKeys from "./components/RandomKeys/RandomKeys"
 import KeyPressed from "./components/KeyPressed"
 import Score from "./components/Score/Score"
 import Modal from "./components/Modal"
+import Header from "./components/Header/Header"
 import "./Playground.css"
 
 import { IStateDifficultyLevel } from "./store/types"
@@ -15,12 +16,13 @@ import DropDownList from "./components/DropDownList/DropDownList"
 import BackgroundMusicPlayground from "./Resources/Sounds/BackgroundMusicPlayground.mp3"
 import OpenedChestSound from "./Resources/Sounds/OpenedChestSound.mp3"
 import LostGameSound from "./Resources/Sounds/LostGameSound.mp3"
+import Title from "./components/Title/Title"
 
 const Playground: React.FC = () => {
   const state = useAppSelector(state => state.playground)
   const dispatch = useAppDispatch()
   const BackGroundMusic = new Audio(BackgroundMusicPlayground)
-  BackGroundMusic.volume = 0.2
+  BackGroundMusic.volume = 0.7
   const OpenedChest = new Audio(OpenedChestSound)
   const LockedChest = new Audio(LostGameSound)
 
@@ -96,15 +98,17 @@ const Playground: React.FC = () => {
         isSuccessEndGame ? "BackgroundImageOpened" : "BackgroundImageLocked"
       }
     >
-      <DropDownList />
+      <Title isTimerActive={isTimerActive}/>
+      <Header isTimerActive={isTimerActive}/>
+      <DropDownList isTimerActive={isTimerActive}/>
       <Controls
         isTimerActive={isTimerActive}
         setIsTimerActive={setIsTimerActive}
         isShowLockpick={isShowLockpick}
         setIsShowLockpick={setIsShowLockpick}
       />
-      <RandomKeys isTimerActive={isTimerActive} />
       <KeyPressed isTimerActive={isTimerActive} />
+      <RandomKeys isTimerActive={isTimerActive} />
       <Score />
       <Modal
         isShowLockpick={isShowLockpick}

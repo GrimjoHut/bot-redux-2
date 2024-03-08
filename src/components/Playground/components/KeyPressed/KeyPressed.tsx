@@ -35,9 +35,8 @@ const KeyPressed: React.FC<IKeyPressedProps> = props => {
   }, [handleKeyDown])
 
   return (
-    <div>
-      <span>{KeyPressedElement}</span>
-    </div>
+    <>
+    </>
   )
 }
 

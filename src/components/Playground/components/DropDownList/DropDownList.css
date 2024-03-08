@@ -1,46 +1,54 @@
-.DropDownListMenu{
-    display: flex;
-    position: absolute;
-    margin: 0;
-    top: 47%;
-    left: 8%;
-  }
-  
-  .DropDownListMenu li{
-    width: 200px;
-    list-style: none;
-    background: #5f5735;
-    position: relative;
-  }
-  
-  .DropDownListMenu a {
-    color: #bfd8b8;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
-    transition: all .5s;
-  }
-  
-  .DropDownListMenu a:hover {
-    background: #808291;
-  }
-  
-  .DropDownListMenu ul {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    display: none;
-    padding: 0;
-  }
-  
-  .DropDownListMenu li:hover > ul {
-    display: block;
-  }
-  
-  .DropDownListMenu ul ul {
-    display: none;
-    top: 0;
-    left: 100%;
-  }
+.HiddenDropDownListMenu {
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  margin: 0;
+  top: 47%;
+  left: 8%;
+}
+.DropDownListMenu {
+  display: flex;
+  position: absolute;
+  margin: 0;
+  top: 47%;
+  left: 8%;
+}
+
+.DropDownListMenu li {
+  width: 200px;
+  list-style: none;
+  background: #5f5735;
+  position: relative;
+}
+
+.DropDownListMenu a {
+  color: #bfd8b8;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  transition: all 0.5s;
+}
+
+.DropDownListMenu a:hover {
+  background: #808291;
+}
+
+.DropDownListMenu ul {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: none;
+  padding: 0;
+}
+
+.DropDownListMenu li:hover > ul {
+  display: block;
+}
+
+.DropDownListMenu ul ul {
+  display: none;
+  top: 0;
+  left: 100%;
+}
