@@ -37,16 +37,16 @@ const Playground: React.FC = () => {
   useEffect(() => {
     switch (state.isDifficultyLevel) {
       case IStateDifficultyLevel.easy:
-        setINTERVAL_TIME(1000)
+        setINTERVAL_TIME(900)
         break
       case IStateDifficultyLevel.middle:
         setINTERVAL_TIME(750)
         break
       case IStateDifficultyLevel.hard:
-        setINTERVAL_TIME(450)
+        setINTERVAL_TIME(500)
         break
       case IStateDifficultyLevel.impossible:
-        setINTERVAL_TIME(10)
+        setINTERVAL_TIME(150)
         break
       default:
         setINTERVAL_TIME(1000)
