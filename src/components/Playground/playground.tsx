@@ -43,10 +43,10 @@ const Playground: React.FC = () => {
         setINTERVAL_TIME(750)
         break
       case IStateDifficultyLevel.hard:
-        setINTERVAL_TIME(500)
+        setINTERVAL_TIME(600)
         break
       case IStateDifficultyLevel.impossible:
-        setINTERVAL_TIME(150)
+        setINTERVAL_TIME(500)
         break
       default:
         setINTERVAL_TIME(1000)
